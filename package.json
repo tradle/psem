@@ -1,11 +1,12 @@
 {
-  "name": "@tradle/module-template",
+  "name": "psem",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/tradle/module-template",
+  "repository": "https://github.com/tradle/psem",
   "author": "Mark Vayngrib <mark@tradle.io>",
   "license": "MIT",
   "devDependencies": {
+    "co": "^4.6.0",
     "eslint": "^3.19.0",
     "husky": "^0.13.3",
     "tape": "^4.6.3"
@@ -14,5 +15,8 @@
     "test": "node test",
     "lint": "eslint --quiet --ignore-path .gitignore .",
     "prepush": "npm test"
+  },
+  "dependencies": {
+    "any-promise": "^1.3.0"
   }
 }
