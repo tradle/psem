@@ -2,6 +2,7 @@
   "name": "psem",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "simple promise-based semaphore",
   "repository": "https://github.com/tradle/psem",
   "author": "Mark Vayngrib <mark@tradle.io>",
   "license": "MIT",
