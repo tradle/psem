@@ -3,29 +3,27 @@ const { EventEmitter } = require('events')
 const Promise = require('any-promise')
 const RESOLVED = Promise.resolve()
 
-module.exports = function createSemaphore () {
+module.exports = () => {
   let open
 
   const ee = new EventEmitter()
   ee.on('stop', () => open = false)
   ee.on('go', () => open = true)
 
-  function go () {
+  const go = () => {
     ee.emit('go')
     return api
   }
 
-  function stop () {
+  const stop = () => {
     ee.emit('stop')
     return api
   }
 
-  function wait () {
+  const wait = () => {
     if (open) return RESOLVED
 
-    return new Promise(resolve => {
-      ee.once('go', resolve)
-    })
+    return new Promise(resolve => ee.once('go', resolve))
   }
 
   const api = { stop, go, wait }
